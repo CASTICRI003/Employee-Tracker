@@ -54,3 +54,33 @@ function intro() {
         }
     })
 };
+
+
+function addEmp() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'firstName',
+            message: "What is the employee's first name?",
+        },
+        {
+            type: 'input',
+            name: 'lastName',
+            message: "What is the employee's last name?",
+        },
+        {
+            type: 'list',
+            name: 'role',
+            message: "What is the employee's role?",
+            choices: [''],
+        },
+        {
+            type: 'list',
+            name: 'mng',
+            message: "Who is the employee's manager?",
+            choices: [''],
+        },
+    ]).then(answer => {
+        console.log(`Added ${answer.firstName} ${answer.lastName} to the database`);
+    });
+};
