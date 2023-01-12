@@ -143,7 +143,12 @@ function upRole() {
 
 
 function viewRole() {
-
+    db.promise().query("SELECT rl.id, rl.title, dpt.name AS department, rl.salary FROM role AS rl JOIN department AS dpt ON rl.department_id = dpt.id")
+    .then(([rows, fields]) => {
+        console.table(rows);
+        intro();
+    })
+    .catch(err => console.log(err));
 };
 
 
