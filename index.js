@@ -26,5 +26,31 @@ function intro() {
         'View All Employees',
         'Quit']
         }
-    )
-}
+    ).then(answer => {
+        switch (answer.intro) {
+            case 'Add Employee':
+                addEmp();
+                break;
+            case 'Add Department':
+                addDept();
+                break;
+            case 'Add Role':
+                addRole();
+                break;
+            case 'Update Employee Role':
+                upRole();
+                break;
+            case 'View All Roles':
+                viewRole();
+                break;
+            case 'View All Departments':
+                viewDept();
+                break;
+            case 'View All Employees':
+                viewEmp();
+                break;
+            default:
+                db.end();
+        }
+    })
+};
