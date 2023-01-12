@@ -153,10 +153,15 @@ function viewRole() {
 
 
 function viewDept() {
-
+    db.promise().query("SELECT * FROM departments")
+    .then(([rows, fields]) => {
+        console.table(rows);
+        intro();
+    })
+    .catch(err => console.log(err));
 };
 
 
 function viewEmp() {
-
+    
 };
