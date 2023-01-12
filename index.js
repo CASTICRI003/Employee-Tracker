@@ -123,7 +123,22 @@ function deptName() {
 
 
 function upRole() {
-
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'emp',
+            message: "Which employee's role do you want to update?",
+            choices: [''],
+        },
+        {
+            type: 'list',
+            name: 'role',
+            message: 'Which role do you want to assign the selected employee?',
+            choices: [''],
+        },
+    ]).then(answer => {
+        console.log(`Updated ${answer.emp}'s role`);
+    });
 };
 
 
