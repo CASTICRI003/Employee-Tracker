@@ -10,3 +10,21 @@ db.connect(err => {
     intro();
 });
 
+function intro() {
+    inquirer.prompt(
+        {
+            type: 'list',
+            name: 'intro',
+            message: 'What would you like to do?',
+            choices: [
+        'Add Employee',
+        'Add Derpartment',
+        'Add Role',
+        'Update Employee Role',
+        'View All Roles',
+        'View All Departments',
+        'View All Employees',
+        'Quit']
+        }
+    )
+}
