@@ -163,5 +163,10 @@ function viewDept() {
 
 
 function viewEmp() {
-    
+    db.promise().query("SELECT emp.id, emp.first_name, emp.last_name, rl.title, dpt.name AS department, rl.salary FROM employee AS emp JOIN role AS rl ON rl.id = emp.role_id JOIN department AS dpt ON dpt.id = rl.department_id")
+    .then(([rows, fields]) => {
+        console.table(rows);
+        intro();
+    })
+    .catch(err => console.log(err));
 };
