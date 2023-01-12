@@ -84,3 +84,39 @@ function addEmp() {
         console.log(`Added ${answer.firstName} ${answer.lastName} to the database`);
     });
 };
+
+function addDept() {
+    const dpts = db.promise().query('SELECT name FROM department');
+    return dpts[0];
+};
+
+
+
+function addRole() {
+
+};
+
+
+function deptName() {
+
+};
+
+
+function upRole() {
+
+};
+
+
+function viewRole() {
+
+};
+
+
+function viewDept() {
+
+};
+
+
+function viewEmp() {
+
+};
