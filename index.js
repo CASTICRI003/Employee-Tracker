@@ -86,19 +86,39 @@ function addEmp() {
 };
 
 function addDept() {
-    const dpts = db.promise().query('SELECT name FROM department');
-    return dpts[0];
+    
 };
 
 
 
 function addRole() {
-
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'nameRole',
+            message: 'What is the name of the role?',
+        },
+        {
+            type: 'input',
+            name: 'salary',
+            message: 'What is the salary of the role?',
+        },
+        {
+            type: 'list',
+            name: 'dept',
+            message: 'Which department does this role belong to?',
+            choices: deptName(),
+        },
+    ]).then(answer => {
+        db.promise().query("INSERT INTO role (title, salary, department_id) VALUES (answer.nameRole, answer.salary, answer.dept");
+        console.log(`Added ${answer.nameRole} to the database`);
+    });
 };
 
 
 function deptName() {
-
+    const dpts = db.promise().query('SELECT name FROM department');
+    return dpts[0];
 };
 
 
