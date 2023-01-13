@@ -95,7 +95,9 @@ function addEmp() {
             choices: [''],
         },
     ]).then(answer => {
+        db.promise().query("INSERT INTO employee (first_name, last_name, role-id, manager_id) VALUES(?, ?, ?, ?)", [answer.firstName, answer.lastName, answer.role, answer.mng]);
         console.log(`Added ${answer.firstName} ${answer.lastName} to the database`);
+        intro();
     });
 };
 
