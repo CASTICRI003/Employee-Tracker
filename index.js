@@ -106,11 +106,11 @@ function addDept() {
 
 
 function addRole() {
-    let dptchoice = [];
+    let dptChoice = [];
     let dptquery = 'SELECT * FROM department';
     db.query(dptquery, (err, res) => {
         for (let i = 0; i < res.length; i++) {
-            dptchoice.push({ name: res[i].name, value: res[i].id });
+            dptChoice.push({ name: res[i].name, value: res[i].id });
         }
     });
     inquirer.prompt([
@@ -128,7 +128,7 @@ function addRole() {
             type: 'list',
             name: 'dept',
             message: 'Which department does this role belong to?',
-            choices: deptName(),
+            choices: dptChoice,
         },
     ]).then(answer => {
         db.promise().query("INSERT INTO role (title, salary, department_id) VALUES (answer.nameRole, answer.salary, answer.dept");
@@ -137,10 +137,6 @@ function addRole() {
 };
 
 
-function deptName() {
-    const dpts = db.promise().query('SELECT name FROM department');
-    return dpts[0];
-};
 
 
 function upRole() {
