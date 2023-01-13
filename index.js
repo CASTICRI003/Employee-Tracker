@@ -106,7 +106,13 @@ function addDept() {
 
 
 function addRole() {
-    
+    let dptchoice = [];
+    let dptquery = 'SELECT * FROM department';
+    db.query(dptquery, (err, res) => {
+        for (let i = 0; i < res.length; i++) {
+            dptchoice.push({ name: res[i].name, value: res[i].id });
+        }
+    });
     inquirer.prompt([
         {
             type: 'input',
