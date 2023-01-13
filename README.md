@@ -7,7 +7,8 @@ Need to keep track of all the employees in your business? Well do i have the app
 
 ## Usage
 
-This video will show you how this works.
+This video will show you how this works. (https://user-images.githubusercontent.com/113932598/212231357-3b68dae1-32ee-4c08-ac3b-f18c08f44700.webm)
+
 
 
 ## Credits
