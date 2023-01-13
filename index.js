@@ -57,6 +57,20 @@ function intro() {
 
 
 function addEmp() {
+    let roleChoice = [];
+    let roleQuery = 'SELECT title FROM role';
+    db.query(roleQuery, (err, res) => {
+        for (let i = 0; i < res.length; i++) {
+            roleChoice.push({ name: res[i].title, value: res[i].id });
+        }
+    });
+    let mngChoice = [];
+    let mngQuery = 'SELECT * FROM employee WHERE manager_id IS null';
+    db.query(mngQuery, (err, res) => {
+        for (let i = 0; i < res.length; i++) {
+            mngChoice.push({ name: res[i].first_name + " " + res[i].last_name, value: res[i].id});
+        }
+    });;
     inquirer.prompt([
         {
             type: 'input',
@@ -92,6 +106,7 @@ function addDept() {
 
 
 function addRole() {
+    
     inquirer.prompt([
         {
             type: 'input',
